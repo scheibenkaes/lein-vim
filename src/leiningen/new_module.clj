@@ -6,7 +6,7 @@
 (def src-template "(ns %s)\n")
 (def test-template "(ns %s)\n")
 
-(defn- create-src-module [path mod-name template] 
+(defn- populate-module-file-with-template [path mod-name template] 
   (let [package-expanded (.replace mod-name "." "/")
         f (file (str path "/" package-expanded ".clj"))]
     (when-not 
@@ -19,5 +19,6 @@
 (defn new-module
   [project mod-name]
   (let [{:keys [source-path test-path]} project]
-    (create-src-module source-path mod-name (format src-template mod-name))))
+    (populate-module-file-with-template source-path mod-name (format src-template mod-name))
+    (populate-module-file-with-template test-path mod-name (format test-template mod-name))))
 
