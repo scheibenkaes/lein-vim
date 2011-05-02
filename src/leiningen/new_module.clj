@@ -11,7 +11,10 @@
         f (file (str path "/" package-expanded ".clj"))]
     (when-not 
       (.exists f)
-      (spit f template))))
+      (do 
+        (.mkdirs (.getParentFile f))
+        (.createNewFile f)
+        (spit f template)))))
 
 (defn new-module
   [project mod-name]
