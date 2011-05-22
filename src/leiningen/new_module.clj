@@ -7,10 +7,6 @@
 (def src-template "(ns %s.%s)\n")
 (def test-template "(ns %s.test.%s)\n")
 
-; bar.foo => src/<proj-name>/foo/bar.clj test/<proj-name>/test/foo/bar.clj
-; (create-file test src)
-; (write-template)
-
 (def period-to-slash #(s/replace % "." "/"))
 
 (def dash-to-underscore #(s/replace % "-" "_"))
