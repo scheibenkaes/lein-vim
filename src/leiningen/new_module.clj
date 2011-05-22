@@ -36,7 +36,7 @@
 
 (defn new-module
   [project mod-name]
-  (let [{:keys [source-path test-path name]} project
+  (let [{:keys [name]} project
         files (create-file-names project mod-name)
         src (format src-template name mod-name)
         test (format test-template name mod-name)]
