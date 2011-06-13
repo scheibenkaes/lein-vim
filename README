@@ -1,13 +1,13 @@
 # lein-vim
 
-FIXME: write description
+Some leiningen tasks to be called from vim
 
 ## Usage
 
-FIXME: write
+call lein help to see the added fns
 
 ## License
 
-Copyright (C) 2011 FIXME
+Copyright (C) 2011 Benjamin Klüglein
 
 Distributed under the Eclipse Public License, the same as Clojure.
