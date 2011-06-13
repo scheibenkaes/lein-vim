@@ -1,6 +1,5 @@
 (ns leiningen.new-module
-  "Create a new clj file with the given name.
-  Also creates the corresponding test file.  "
+  "Create a new clj file with the given name. Also create a corresponding test file."
   (:use [clojure.java.io :only [file]])
   (:require [clojure.string :as s]))
 
@@ -17,9 +16,9 @@
 (defn- interleave-with-slash [parts]
   (apply str (butlast (interleave parts (repeat "/")))))
 
-(defn- create-file-names [project mod-name] 
-  (let [src ["src" (:name project) (str (sanitize-str mod-name) ".clj")]
-        test ["test" (:name project) "test" (str (sanitize-str mod-name) ".clj")]]
+(defn- create-file-names [{pname :name} mod-name] 
+  (let [src ["src" (sanitize-str pname) (str (sanitize-str mod-name) ".clj")]
+        test ["test" (sanitize-str pname) "test" (str (sanitize-str mod-name) ".clj")]]
     {:src (interleave-with-slash src) :test (interleave-with-slash test)}))
 
 (defn- 
